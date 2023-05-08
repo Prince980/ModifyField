@@ -1,0 +1,23 @@
+DUT_IHM RED = new DUT_IHM();
+                var ihm = RED;
+
+                DUT_PA pa = ihm.PA;  // Retrieve the AP property
+
+                // Assigning the value "Prince" to the Operator_ID field
+                pa.Operator_ID = 42;
+
+                ihm.PA = pa;  // Assign the modified AP property back to RED
+
+
+
+                /* var tcStruct = _tcClient.ReadAny(_hVar, typeof(DUT_IHM));
+                   Console.WriteLine(tcStruct);
+
+                  var ihm = (DUT_IHM)tcStruct; */
+
+                ActiveUserID = ihm.PA.Operator_ID;
+                if(CurrentRegion != MireViewModel)
+                {
+                    MireViewModel.ModeMesureTension = 0;
+                    SetTwincatValue("ModeMesureTension", 0);
+                }
